@@ -7,6 +7,7 @@ package fr.unice.miage.ntdp.bibliotheque.services;
 
 import com.miage.biblio.Categorie;
 import com.miage.biblio.beans.AbstractFacade;
+import com.miage.biblio.beans.CategorieFacade;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
@@ -18,12 +19,12 @@ import javax.ws.rs.core.MediaType;
  *
  * @author florian
  */
-@Path("catégorie")
-public class CategorieRessource extends AbstractFacade<Categorie> {
-    public CategorieRessource(){
-        super(Categorie.class);
-    }
+@Path("categorie")
+public class CategorieRessource extends CategorieFacade {
+    
+   
     @GET
+    @Path("test")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public String hello(){
         return "La ressource demandée existe!";
@@ -35,8 +36,5 @@ public class CategorieRessource extends AbstractFacade<Categorie> {
         return super.findAll();
     }
 
-    @Override
-    protected EntityManager getEntityManager() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
