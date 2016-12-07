@@ -27,13 +27,20 @@ public class CategorieRessource extends CategorieFacade {
     @Path("test")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public String hello(){
-        return "La ressource demandée existe!";
+        return "<html>La ressource demandée existe!</html>";
     }
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Categorie> list(){
         return super.findAll();
+    }
+    
+    @GET
+    @Path("count")
+    @Produces({MediaType.TEXT_PLAIN})
+    public int giveCount(){
+        return super.count();
     }
 
     
